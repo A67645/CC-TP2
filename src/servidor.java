@@ -1,7 +1,38 @@
-public class Servidor{
-	int id;
+import java.net.Socket;
+import java.net.ServerSocket;
+import java.io.PrintWriter;
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+import java.io.IOException;
 
-	public Servidor(int id){
-		this.id = id;
-	}
+/**
+ * Write a description of class EchoServer here.
+ * 
+ * @author (your name) 
+ * @version (a version number or a date)
+ */
+public class Server
+{
+    public static void main(String [] argv) throws IOException
+    {
+        
+        int port = Integer.parseInt(argv[0]);
+        DatagramSocket ss = new DatagramSocket(port);
+        
+        while(true){
+            Socket cs = ss.accept();
+            PrintWriter out = new PrintWriter(cs.getOutputStream());
+            BufferedReader in = new BufferedReader(new InputStreamReader(cs.getInputStream()));
+            
+            while(true){                
+                String s = in.readLine();
+                if(s == null) break;
+                out.println(s);
+                out.flush();                
+            }
+            
+            out.close();
+            cs.close();
+        }
+    }
 }

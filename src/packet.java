@@ -18,7 +18,8 @@ types
  	0 -> connection request
  	1 -> data request
  	2 -> data packet
- 	3 -> end of connection
+ 	3 -> acknowledgment
+ 	4 -> end of connection
  	-1 -> connectio refused
 
  priority
@@ -36,6 +37,7 @@ public class Packet{
 	int id;
 	int size;
 	Bool more_fragments;
+	int original_id;
 	int offset;
 	int type;
 	int priority;
@@ -44,13 +46,14 @@ public class Packet{
 	int src_id;
 	int dest_id;
 	String filename;
-	File data;
+	BufferedReader data;
 
 	
-	class Packet(int id, int size, int more_fragments, int offset, int type, int priority, int src_port, int dest_port, int src_id; int dest_id; String filename, File data){
+	public Packet(int id, int size, int more_fragments, int original_id, int offset, int type, int priority, int src_port, int dest_port, int src_id; int dest_id; String filename, File data){
 		this.id = id;
 		this.size = size;
 		this.more_fragments = more_fragments;
+		this.original_id = original_id;
 		this.offset	= offset;
 		this.type = type;
 		this.priority = priority;
@@ -59,6 +62,7 @@ public class Packet{
 		this.src_id = src_id;
 		this.dest_id = dest_id;
 		this.filename = filename;
-		this.data = new File(data);
+		if(data == null && filename == null) this.data = null;
+		else this.data = new BufferedReader(new FileReader(filename));
 	}
 }
