@@ -22,10 +22,17 @@ class TransfereCC{
         Boolean offset_check(int original_id){
                 <Packet>ArrayList target = new <Packet>ArrayList(cache.get(original_id));
 
-                for(Packet p : target){
-                        
+                for(int i = 0; i < target.size(); i++){
+                        if(target[i].offset != i){
+                                return False;
+                        }
                 }
 
+                if(target[target.size() - 1].get_more_fragments() != False){
+                        return False;
+                }
+
+                return True;
         }
 
         void packet_handler(int size, int original_id, int type, int priority, int src_port, int dest_port, String filename, File data)                
