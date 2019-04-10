@@ -12,9 +12,11 @@ import java.io.InputStreamReader;
 
  more_fragments -> se é o último fragmento ou não
 
- ioffset -> fragment offset
+ original_id -> id do primeiro fragmento
 
-types
+ offset -> fragment offset
+
+ type -> tipo de packet
  	0 -> connection request
  	1 -> data request
  	2 -> data packet
@@ -22,15 +24,22 @@ types
  	4 -> end of connection
  	-1 -> connectio refused
 
- priority
+ priority -> indice de prioridade da trama
  	0 -> low level
  	2 -> mid level
  	3 -> max level
 
-filename -> nome do ficheiro a ser enviado/pedido (pode ser null em packets de controlo)
- 
-data -> ficherio propriamente dito
+ src_port -> porto da fonte do packet
 
+ dest_port -> porto do destino do packet
+
+ src_id -> idêntificação da fonte do packet
+
+ dest_id -> idêntificação do destino do packet
+
+ filename -> nome do ficheiro a ser enviado/pedido (pode ser null em packets de controlo)
+ 
+ data -> ficherio propriamente dito
 */
 
 public class Packet{
