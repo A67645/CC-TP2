@@ -8,15 +8,15 @@ class TransfereCC{
 
         public TransfereCC(){
                 this.line = new <Packet>Arraylist();
-                this.cache = new <int, Packet>HashMap;
+                this.cache = new <int, Packet>HashMap();
         }
 
-        void insert(){
-
+        void insert(Packet p){
+                this.cache.put(p.original_id, p);
         }
 
-        void remove(){
-
+        void remove(Packet p){
+                cache.get(p.original_id).remove(p);
         }
 
         Boolean offset_check(int original_id){
