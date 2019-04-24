@@ -1,8 +1,12 @@
-import java.net.Socket;
-import java.net.ServerSocket;
 import java.io.PrintWriter;
 import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.FileReader;
+import java.io.FileWriter;
 import java.io.InputStreamReader;
+import java.io.File;
+import java.io.IOException;
+
 
 /*
 
@@ -25,7 +29,7 @@ import java.io.InputStreamReader;
  	-1 -> connectio refused
 
  priority -> indice de prioridade da trama
- 	0 -> low level
+ 	1 -> low level
  	2 -> mid level
  	3 -> max level
 
@@ -45,7 +49,7 @@ import java.io.InputStreamReader;
 public class Packet{
 	int id;
 	int size;
-	Bool more_fragments;
+	boolean more_fragments;
 	int original_id;
 	int offset;
 	int type;
@@ -55,10 +59,11 @@ public class Packet{
 	int src_id;
 	int dest_id;
 	String filename;
-	BufferedReader data;
+	BufferedReader sent_file;
+	BufferedWriter received_file;
 
 	
-	public Packet(int id, int size, int more_fragments, int original_id, int offset, int type, int priority, int src_port, int dest_port, int src_id; int dest_id; String filename, File data){
+	public Packet(int id, int size, boolean more_fragments, int original_id, int offset, int type, int priority, int src_port, int dest_port, int src_id, int dest_id, String filename){
 		this.id = id;
 		this.size = size;
 		this.more_fragments = more_fragments;
@@ -70,8 +75,41 @@ public class Packet{
 		this.dest_port = dest_port;
 		this.src_id = src_id;
 		this.dest_id = dest_id;
-		this.filename = filename;
-		if(data == null && filename == null) this.data = null;
-		else this.data = new BufferedReader(new FileReader(filename));
+
+		if(filename == null) this.filename = null;
+		else {
+			this.filename = filename;
+		}
+
+		File sent_file = new File(filename);
+		File received_file  = new File(sent_file.getParent(), filename);
+		try{
+			if(filename == null || type != 2) this.sent_file = null;
+			else{
+				this.sent_file = new BufferedReader(new FileReader(sent_file));
+			}
+
+			if(filename == null || type != 1) this.received_file = null;
+			else{
+				this.received_file = new BufferedWriter(new FileWriter(received_file));
+			}
+		}
+		catch(IOException e){
+			e.printStackTrace();
+		}
+
+
+		
+	}
+
+	public void closeBuffers(){
+		try{
+			this.sent_file.close();
+			this.received_file.close();
+		}
+		catch(IOException e){
+			e.printStackTrace();
+		}
+
 	}
 }

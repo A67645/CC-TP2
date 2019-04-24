@@ -1,0 +1,252 @@
+Cliente.java:50: error: non-static variable this cannot be referenced from a static context
+                this.dest_port = port;
+                ^
+Cliente.java:50: error: cannot find symbol
+                this.dest_port = port;
+                    ^
+  symbol: variable dest_port
+Cliente.java:51: error: cannot find symbol
+                InetAdress host_addr = InetAdress.getLocalHost();
+                ^
+  symbol:   class InetAdress
+  location: class Cliente
+Cliente.java:51: error: cannot find symbol
+                InetAdress host_addr = InetAdress.getLocalHost();
+                                       ^
+  symbol:   variable InetAdress
+  location: class Cliente
+Cliente.java:52: error: non-static variable this cannot be referenced from a static context
+                Packet datagram = new Packet(this.packet_id++, 0, false, this.packet_id, 0, 0, 2, this.port, 0, this.id, 0, null);
+                                             ^
+Cliente.java:52: error: cannot find symbol
+                Packet datagram = new Packet(this.packet_id++, 0, false, this.packet_id, 0, 0, 2, this.port, 0, this.id, 0, null);
+                                                 ^
+  symbol: variable packet_id
+Cliente.java:52: error: non-static variable this cannot be referenced from a static context
+                Packet datagram = new Packet(this.packet_id++, 0, false, this.packet_id, 0, 0, 2, this.port, 0, this.id, 0, null);
+                                                                         ^
+Cliente.java:52: error: cannot find symbol
+                Packet datagram = new Packet(this.packet_id++, 0, false, this.packet_id, 0, 0, 2, this.port, 0, this.id, 0, null);
+                                                                             ^
+  symbol: variable packet_id
+Cliente.java:52: error: non-static variable this cannot be referenced from a static context
+                Packet datagram = new Packet(this.packet_id++, 0, false, this.packet_id, 0, 0, 2, this.port, 0, this.id, 0, null);
+                                                                                                  ^
+Cliente.java:52: error: cannot find symbol
+                Packet datagram = new Packet(this.packet_id++, 0, false, this.packet_id, 0, 0, 2, this.port, 0, this.id, 0, null);
+                                                                                                      ^
+  symbol: variable port
+Cliente.java:52: error: non-static variable this cannot be referenced from a static context
+                Packet datagram = new Packet(this.packet_id++, 0, false, this.packet_id, 0, 0, 2, this.port, 0, this.id, 0, null);
+                                                                                                                ^
+Cliente.java:52: error: cannot find symbol
+                Packet datagram = new Packet(this.packet_id++, 0, false, this.packet_id, 0, 0, 2, this.port, 0, this.id, 0, null);
+                                                                                                                    ^
+  symbol: variable id
+Cliente.java:57: error: cannot find symbol
+                DatagramPacket packet = new DatagramPacket(buffer, buffer.lenght, host_addr, this.port);
+                                                                         ^
+  symbol:   variable lenght
+  location: variable buffer of type byte[]
+Cliente.java:57: error: non-static variable this cannot be referenced from a static context
+                DatagramPacket packet = new DatagramPacket(buffer, buffer.lenght, host_addr, this.port);
+                                                                                             ^
+Cliente.java:57: error: cannot find symbol
+                DatagramPacket packet = new DatagramPacket(buffer, buffer.lenght, host_addr, this.port);
+                                                                                                 ^
+  symbol: variable port
+Cliente.java:59: error: cannot find symbol
+                datagra.closeBuffer();
+                ^
+  symbol:   variable datagra
+  location: class Cliente
+Cliente.java:63: error: non-static variable this cannot be referenced from a static context
+            if(s1 == "send" && this.dest_port != 0)
+                               ^
+Cliente.java:63: error: cannot find symbol
+            if(s1 == "send" && this.dest_port != 0)
+                                   ^
+  symbol: variable dest_port
+Cliente.java:65: error: package system does not exist
+                system.out.println("file name");
+                      ^
+Cliente.java:66: error: cannot find symbol
+                Sttring s2 = system.console.readline();
+                ^
+  symbol:   class Sttring
+  location: class Cliente
+Cliente.java:66: error: package system does not exist
+                Sttring s2 = system.console.readline();
+                                   ^
+Cliente.java:67: error: non-static variable this cannot be referenced from a static context
+                Packet datagram = new Packet(this.packet_id++, 0, false, this.packet_id, 0, 1, 2, this.port, 0, this.id, 0, s2);
+                                             ^
+Cliente.java:67: error: cannot find symbol
+                Packet datagram = new Packet(this.packet_id++, 0, false, this.packet_id, 0, 1, 2, this.port, 0, this.id, 0, s2);
+                                                 ^
+  symbol: variable packet_id
+Cliente.java:67: error: non-static variable this cannot be referenced from a static context
+                Packet datagram = new Packet(this.packet_id++, 0, false, this.packet_id, 0, 1, 2, this.port, 0, this.id, 0, s2);
+                                                                         ^
+Cliente.java:67: error: cannot find symbol
+                Packet datagram = new Packet(this.packet_id++, 0, false, this.packet_id, 0, 1, 2, this.port, 0, this.id, 0, s2);
+                                                                             ^
+  symbol: variable packet_id
+Cliente.java:67: error: non-static variable this cannot be referenced from a static context
+                Packet datagram = new Packet(this.packet_id++, 0, false, this.packet_id, 0, 1, 2, this.port, 0, this.id, 0, s2);
+                                                                                                  ^
+Cliente.java:67: error: cannot find symbol
+                Packet datagram = new Packet(this.packet_id++, 0, false, this.packet_id, 0, 1, 2, this.port, 0, this.id, 0, s2);
+                                                                                                      ^
+  symbol: variable port
+Cliente.java:67: error: non-static variable this cannot be referenced from a static context
+                Packet datagram = new Packet(this.packet_id++, 0, false, this.packet_id, 0, 1, 2, this.port, 0, this.id, 0, s2);
+                                                                                                                ^
+Cliente.java:67: error: cannot find symbol
+                Packet datagram = new Packet(this.packet_id++, 0, false, this.packet_id, 0, 1, 2, this.port, 0, this.id, 0, s2);
+                                                                                                                    ^
+  symbol: variable id
+Cliente.java:72: error: cannot find symbol
+                DatagramPacket packet = new DatagramPacket(buffer, buffer.lenght, host_addr, this.port);
+                                                                         ^
+  symbol:   variable lenght
+  location: variable buffer of type byte[]
+Cliente.java:72: error: cannot find symbol
+                DatagramPacket packet = new DatagramPacket(buffer, buffer.lenght, host_addr, this.port);
+                                                                                  ^
+  symbol:   variable host_addr
+  location: class Cliente
+Cliente.java:72: error: non-static variable this cannot be referenced from a static context
+                DatagramPacket packet = new DatagramPacket(buffer, buffer.lenght, host_addr, this.port);
+                                                                                             ^
+Cliente.java:72: error: cannot find symbol
+                DatagramPacket packet = new DatagramPacket(buffer, buffer.lenght, host_addr, this.port);
+                                                                                                 ^
+  symbol: variable port
+Cliente.java:74: error: cannot find symbol
+                datagra.closeBuffer();
+                ^
+  symbol:   variable datagra
+  location: class Cliente
+Cliente.java:80: error: package system does not exist
+                system.out.println("filename:");
+                      ^
+Cliente.java:81: error: cannot find symbol
+                Sttring s2 = system.console.readline();
+                ^
+  symbol:   class Sttring
+  location: class Cliente
+Cliente.java:81: error: package system does not exist
+                Sttring s2 = system.console.readline();
+                                   ^
+Cliente.java:82: error: non-static variable this cannot be referenced from a static context
+                Packet datagram = new Packet(this.packet_id++, 0, false, this.packet_id, 0, 1, 1, this.port, 0, this.id, 0, s2);
+                                             ^
+Cliente.java:82: error: cannot find symbol
+                Packet datagram = new Packet(this.packet_id++, 0, false, this.packet_id, 0, 1, 1, this.port, 0, this.id, 0, s2);
+                                                 ^
+  symbol: variable packet_id
+Cliente.java:82: error: non-static variable this cannot be referenced from a static context
+                Packet datagram = new Packet(this.packet_id++, 0, false, this.packet_id, 0, 1, 1, this.port, 0, this.id, 0, s2);
+                                                                         ^
+Cliente.java:82: error: cannot find symbol
+                Packet datagram = new Packet(this.packet_id++, 0, false, this.packet_id, 0, 1, 1, this.port, 0, this.id, 0, s2);
+                                                                             ^
+  symbol: variable packet_id
+Cliente.java:82: error: non-static variable this cannot be referenced from a static context
+                Packet datagram = new Packet(this.packet_id++, 0, false, this.packet_id, 0, 1, 1, this.port, 0, this.id, 0, s2);
+                                                                                                  ^
+Cliente.java:82: error: cannot find symbol
+                Packet datagram = new Packet(this.packet_id++, 0, false, this.packet_id, 0, 1, 1, this.port, 0, this.id, 0, s2);
+                                                                                                      ^
+  symbol: variable port
+Cliente.java:82: error: non-static variable this cannot be referenced from a static context
+                Packet datagram = new Packet(this.packet_id++, 0, false, this.packet_id, 0, 1, 1, this.port, 0, this.id, 0, s2);
+                                                                                                                ^
+Cliente.java:82: error: cannot find symbol
+                Packet datagram = new Packet(this.packet_id++, 0, false, this.packet_id, 0, 1, 1, this.port, 0, this.id, 0, s2);
+                                                                                                                    ^
+  symbol: variable id
+Cliente.java:87: error: cannot find symbol
+                DatagramPacket packet = new DatagramPacket(buffer, buffer.lenght, host_addr, this.port);
+                                                                         ^
+  symbol:   variable lenght
+  location: variable buffer of type byte[]
+Cliente.java:87: error: cannot find symbol
+                DatagramPacket packet = new DatagramPacket(buffer, buffer.lenght, host_addr, this.port);
+                                                                                  ^
+  symbol:   variable host_addr
+  location: class Cliente
+Cliente.java:87: error: non-static variable this cannot be referenced from a static context
+                DatagramPacket packet = new DatagramPacket(buffer, buffer.lenght, host_addr, this.port);
+                                                                                             ^
+Cliente.java:87: error: cannot find symbol
+                DatagramPacket packet = new DatagramPacket(buffer, buffer.lenght, host_addr, this.port);
+                                                                                                 ^
+  symbol: variable port
+Cliente.java:89: error: cannot find symbol
+                datagra.closeBuffer();
+                ^
+  symbol:   variable datagra
+  location: class Cliente
+Cliente.java:92: error: cannot find symbol
+                DatagramPacket datagram2 = new DatagramPacket(buffer, buffer.lenght);
+                                                                            ^
+  symbol:   variable lenght
+  location: variable buffer of type byte[]
+Cliente.java:99: error: variable datagram2 is already defined in method main(String[])
+                    Packet datagram2 = (Packet) is.readObject();
+                           ^
+Cliente.java:101: error: cannot find symbol
+                    while(s = sent_file.readline()){
+                              ^
+  symbol:   variable sent_file
+  location: class Cliente
+Cliente.java:101: error: incompatible types: String cannot be converted to boolean
+                    while(s = sent_file.readline()){
+                            ^
+Cliente.java:117: error: non-static variable this cannot be referenced from a static context
+                Packet datagram = new Packet(this.packet_id++, 0, false, this.packet_id, 0, 4, 3, this.port, 0, this.id, 0, null);
+                                             ^
+Cliente.java:117: error: cannot find symbol
+                Packet datagram = new Packet(this.packet_id++, 0, false, this.packet_id, 0, 4, 3, this.port, 0, this.id, 0, null);
+                                                 ^
+  symbol: variable packet_id
+Cliente.java:117: error: non-static variable this cannot be referenced from a static context
+                Packet datagram = new Packet(this.packet_id++, 0, false, this.packet_id, 0, 4, 3, this.port, 0, this.id, 0, null);
+                                                                         ^
+Cliente.java:117: error: cannot find symbol
+                Packet datagram = new Packet(this.packet_id++, 0, false, this.packet_id, 0, 4, 3, this.port, 0, this.id, 0, null);
+                                                                             ^
+  symbol: variable packet_id
+Cliente.java:117: error: non-static variable this cannot be referenced from a static context
+                Packet datagram = new Packet(this.packet_id++, 0, false, this.packet_id, 0, 4, 3, this.port, 0, this.id, 0, null);
+                                                                                                  ^
+Cliente.java:117: error: cannot find symbol
+                Packet datagram = new Packet(this.packet_id++, 0, false, this.packet_id, 0, 4, 3, this.port, 0, this.id, 0, null);
+                                                                                                      ^
+  symbol: variable port
+Cliente.java:117: error: non-static variable this cannot be referenced from a static context
+                Packet datagram = new Packet(this.packet_id++, 0, false, this.packet_id, 0, 4, 3, this.port, 0, this.id, 0, null);
+                                                                                                                ^
+Cliente.java:117: error: cannot find symbol
+                Packet datagram = new Packet(this.packet_id++, 0, false, this.packet_id, 0, 4, 3, this.port, 0, this.id, 0, null);
+                                                                                                                    ^
+  symbol: variable id
+Cliente.java:122: error: cannot find symbol
+                DatagramPacket packet = new DatagramPacket(buffer, buffer.lenght, host_addr, this.port);
+                                                                         ^
+  symbol:   variable lenght
+  location: variable buffer of type byte[]
+Cliente.java:122: error: cannot find symbol
+                DatagramPacket packet = new DatagramPacket(buffer, buffer.lenght, host_addr, this.port);
+                                                                                  ^
+  symbol:   variable host_addr
+  location: class Cliente
+Cliente.java:122: error: non-static variable this cannot be referenced from a static context
+                DatagramPacket packet = new DatagramPacket(buffer, buffer.lenght, host_addr, this.port);
+                                                                                             ^
+Cliente.java:122: error: cannot find symbol
+                DatagramPacket packet = new DatagramPacket(buffer, buffer.lenght, host_addr, this.port);
+                                                                                                 ^
+  symbol: variable port
