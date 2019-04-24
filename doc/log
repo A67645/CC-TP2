@@ -1,0 +1,18 @@
+
+
+Servidor.java:68: error: cannot find symbol
+                    data.close();
+                        ^
+  symbol:   method close()
+  location: variable data of type byte[]
+Servidor.java:69: error: cannot find symbol
+                    buffer.close();
+                          ^
+  symbol:   method close()
+  location: variable buffer of type byte[]
+Servidor.java:79: error: cannot find symbol
+            data.close();
+                ^
+  symbol:   method close()
+  location: variable data of type byte[]
+7 errors
