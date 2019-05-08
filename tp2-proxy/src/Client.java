@@ -3,7 +3,6 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.net.*;
 import java.nio.Buffer;
-import ../../UDPAgent/src/UDPAgent.*;
 
 public class Client extends Thread {
 
