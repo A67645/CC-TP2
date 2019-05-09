@@ -1,5 +1,5 @@
 import java.util.ArrayList;
-import java.utlil.HashMap;
+import java.util.HashMap;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -23,63 +23,62 @@ public class TransferCC {
 		PDUnit p;
 		for(PDUnit t : line){
 			if(t.id == id){
-				p  = t;
+				p = new PDUnit(t);
+				line.remove(p);
 				break;
 			}
 		}
-
-		line.remove(p);
 	}
 
 	public int is_complete(){
-		int end_packet = 0;
-		for(PDUnit p : line){
-			if(p.more_fragments == false){
-				end_packet = 1;
-				break;
-			}
-		}
-
-		if(line.size() == line.get(0).size && end_packet == 1){
+		if(line.size() == line.get(0).size){
 			return 1;
 		}
 
-		if(line.size() == line.get(0).size && end_packet == 0){
+		if(line.size() > line.get(0).size){
 			return -1;
 		}
 		else return 0;
 	}
 
-	public void fragment(BufferedReader br, int id, int type, int priority, int src_port, int dest_port, int src_id, int dest_id, String filename){
+	public void fragment(BufferedReader br, int id, int type, int priority, int checksum, /*int src_port, int dest_port,*/ int src_id, int dest_id, String filename){
 		ArrayList<String> list = new ArrayList<String>();
 		String l;
 
-		while((l = br.readLine()) != null){
-    		list.add(l);
+		try{
+			while((l = br.readLine()) != null){
+    			list.add(l);
+			}
+		}
+		catch(IOException e){
+			e.printStackTrace();
 		}
 
 		int os = 0;
 		for(String t : list){
-			PDUnit p = new PDUnit(id, list.size(), 1, id+os, os, type, priority, src_port, dest_port, src_id, dest_id, filename, l.get(os));
+			PDUnit p = new PDUnit(id, list.size(), id+os, os, type, priority, checksum, /*src_port, dest_port,*/ src_id, dest_id, filename, t);
 			new_packet(p);
 			os++;
 		}
-
-		list.get(os-1).more_fragments = 0;
-
 	}
 
-	public PrintWriter reassemble(){
-		PrintWriter file = new PrintWriter();
+	public void reassemble(String filename){
 
-		int order = 0;
-		for(PDUnit p : line){
-			for(PDUnit t : line){
-				if(t.offset == order){
-					file.write(t.data);
+		try{
+			PrintWriter file = new PrintWriter(filename);
+			int order = 0;
+			for(PDUnit p : line){
+				for(PDUnit t : line){
+					if(t.offset == order){
+						file.println(t.data);
+					}
 				}
+				order++;
 			}
-			order++;
+			file.close();
+		}
+		catch(FileNotFoundException e){
+			e.printStackTrace();
 		}
 	}
 
