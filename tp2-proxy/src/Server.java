@@ -36,6 +36,7 @@ public class Server extends Thread {
             int id = 0;
 
             while(true) {
+            	Random rand = new Random();
                 // Receive packet
                 DatagramPacket receivePacket = new DatagramPacket(agent.getReceiveData(), agent.getReceiveData().length);
 
@@ -55,13 +56,13 @@ public class Server extends Thread {
 
                 // If Data Request fragment and send all packets;
                 if(datagram.type == 3){
-                    BufferedReader file = new BufferedReader(new FileReader(filename));
+                    BufferedReader file = new BufferedReader(new FileReader(datagram.filename));
 
                     TransferCC packs = new TransferCC();
 
                     int check = rand.nextInt(500);
 
-                    packs.fragment(file, id, 1, 2, check, agent.get_client_id(), agent.get_server_id(), filename);
+                    packs.fragment(file, id, 1, 2, check, agent.get_client_id(), agent.get_server_id(), datagram.filename);
 
                     id = id+packs.line.size()+1;
 
@@ -83,9 +84,9 @@ public class Server extends Thread {
 
                     // Receive ACK for data sent.
 
-                    DatagramPacket receivePacket = new DatagramPacket(this.agent.getReceiveData(), this.agent.getReceiveData().length);
+                    DatagramPacket receivePacket2 = new DatagramPacket(this.agent.getReceiveData(), this.agent.getReceiveData().length);
 
-                    this.agent.receivePacket(receivePacket);
+                    this.agent.receivePacket(receivePacket2);
 
                     ByteArrayInputStream in2 = new ByteArrayInputStream(agent.getReceiveData());
                     ObjectInputStream is2 = new ObjectInputStream(in2);
@@ -99,13 +100,13 @@ public class Server extends Thread {
 
                 if(datagram.type == 1){
                     ariving.new_packet(datagram);
-                    if(ariving.is_complete() == true){
+                    if(ariving.is_complete() == 1){
                         ariving.reassemble(datagram.filename);
 
                         // Send ACK for data received
                         int check2 = rand.nextInt(500);
 
-                        PDUnit r2 = new PDUnit(id, 0, id, 0, 0, 1, check, agent.get_client_id(), agent.get_server_id(), "", "");
+                        PDUnit r2 = new PDUnit(id, 0, id, 0, 0, 1, check2, agent.get_client_id(), agent.get_server_id(), "", "");
                         ByteArrayOutputStream outputstream2 = new ByteArrayOutputStream();
                         ObjectOutputStream dataOs = new ObjectOutputStream(outputstream2);
                         dataOs.writeObject(r2);
